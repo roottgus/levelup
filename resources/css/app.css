@@ -1,0 +1,151 @@
+/* resources/css/app.css */
+
+/* stylelint-disable at-rule-no-unknown */
+/* resources/css/app.css */
+
+/* FontAwesome Free */
+@import "@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "@fortawesome/fontawesome-free/css/regular.css";
+@import "@fortawesome/fontawesome-free/css/brands.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* 1. Tailwind Core - PostCSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Section Title Styles */
+.section-title {
+  @apply relative text-4xl font-heading text-dark uppercase tracking-wider text-center mb-4;
+}
+.section-title::after {
+  content: "";
+  @apply block w-16 h-1 bg-primary rounded mt-2 mx-auto;
+}
+.section-title .text-secondary {
+  /* Gradient text for highlighted word */
+  background: linear-gradient(90deg, #E5002A, #0F66AF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3. Icon Hover Effect */
+.icon-hover:hover {
+  @apply scale-110 text-primary;
+}
+
+@layer utilities {
+  @keyframes spin-cw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  @keyframes spin-ccw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-cw 4s linear infinite;
+  }
+  .animate-spin-fast-reverse {
+    animation: spin-ccw 2s linear infinite;
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from   { transform: rotate(0deg); }
+  to     { transform: rotate(360deg); }
+}
+@keyframes spin-pulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.1); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: spin-pulse 3s ease-in-out infinite;
+}
+
+@layer utilities {
+  /* Fondo degradado animado */
+  .animated-gradient {
+    background: linear-gradient(45deg, #1e3a8a, #19191a, #7e2929, #343b79);
+    background-size: 600% 600%;
+    animation: gradient-shift 12s ease infinite;
+    
+  }
+  @keyframes gradient-shift {
+    0%   { background-position: 0%   50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0%   50%; }
+  }
+
+  /* Fade‐in y slide‐up para título, subtítulo y botón */
+  @keyframes fadeSlideUp {
+    0%   { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Aparición en cascada */
+.splash-logo {
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out forwards 0.2s;
+}
+  .splash-title {
+    animation: fadeSlideUp 1s ease-out forwards 0.5s;
+  }
+  .splash-subtitle {
+    animation: fadeSlideUp 1s ease-out forwards 1.0s;
+  }
+  .splash-button {
+    animation: fadeSlideUp 1s ease-out forwards 1.5s;
+    transition: transform 0.3s ease;
+  }
+  .splash-button:hover {
+    transform: scale(1.05);
+  }
+
+  /* Fade‐out del splash */
+  
+}
+
+/* Círculo de iconos animado */
+.icon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  --radius: 180px;
+}
+
+.icon-item {
+  --angle: calc(360deg / var(--n) * var(--i));
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: 
+    rotate(var(--angle)) 
+    translate(var(--radius)) 
+    rotate(calc(-1 * var(--angle)));
+  animation: rotate-circle 15s linear infinite;
+}
+
+.icon-item i {
+  font-size: 1.5rem;
+  color: white;
+}
+@keyframes rotate-circle {
+  from { transform: rotate(var(--angle)) translate(120px) rotate(calc(-1 * var(--angle))); }
+  to   { transform: rotate(calc(var(--angle) + 360deg)) translate(100px) rotate(calc(-1 * var(--angle) - 360deg)); }
+}
+
