@@ -1,23 +1,12 @@
 ---
 deployment:
   tasks:
-    # 1) Instalar dependencias PHP
     - composer install --no-dev --optimize-autoloader
-
-    # 2) Instalar dependencias de Node y construir assets
     - npm ci
     - npm run build
-
-    # 3) Generar la key de Laravel si hiciera falta
     - php artisan key:generate --force
-
-    # 4) Ejecutar migraciones sin interacción
     - php artisan migrate --force
-
-    # 5) Enlazar el storage
     - php artisan storage:link
-
-    # 6) Limpiar caché (config, rutas, vistas)
     - php artisan config:clear
     - php artisan route:clear
     - php artisan view:clear
