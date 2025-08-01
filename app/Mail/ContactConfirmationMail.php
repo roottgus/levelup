@@ -12,19 +12,18 @@ class ContactConfirmationMail extends Mailable
 
     public $data;
 
-    /**
-     * $data contiene ['name','email','message']
-     */
     public function __construct(array $data)
     {
         $this->data = $data;
     }
 
     public function build()
-    {
-        return $this
-            ->subject('Gracias por contactarnos')
-            ->markdown('emails.contact_confirmation')
-            ->with('data', $this->data);
-    }
+{
+    return $this
+        ->from(config('mail.from.address'), config('mail.from.name'))
+        ->subject('Gracias por escribirnos, ' . $this->data['name'])
+        ->view('emails.contact.user-html')
+        ->with('data', $this->data);
+}
+
 }

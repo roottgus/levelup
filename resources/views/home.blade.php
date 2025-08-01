@@ -1,7 +1,8 @@
+{{-- resources/views/home.blade.php --}}
 @extends('layouts.app')
 
-@section('title','Inicio – PublienRed')
-@section('description','Innovación al clic de tu mano.')
+@section('title', __('messages.home_title'))
+@section('description', __('messages.home_description'))
 
 @section('content')
   {{-- Hero + degradado abajo --}}
@@ -29,9 +30,16 @@
     @include('partials.wave', ['flip' => false, 'color' => '#ffffff'])
   </div>
 
+  {{-- Testimonios --}}
+  <div class="relative bg-white">
+    @include('partials.wave', ['flip' => true, 'color' => '#ffffff'])
+    @include('partials.testimonios', ['testimonios' => $testimonios])
+    @include('partials.wave', ['flip' => false, 'color' => '#f4f6fa'])
+  </div>
+
   {{-- Tecnologías + Portafolio --}}
   <div class="relative bg-white">
-    @include('partials.wave', ['flip' => true,  'color' => '#ffffff'])
+    @include('partials.wave', ['flip' => true,  'color' => '#f4f6fa'])
     @include('partials.technologies')
     @include('partials.portfolio')
     @include('partials.wave', ['flip' => false, 'color' => '#f7fafc'])

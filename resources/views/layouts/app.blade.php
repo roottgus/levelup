@@ -22,49 +22,54 @@
     @yield('jsonld')
   @else
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "PublienRed",
+  "name": "LevelUp+ Digital Agency",
   "url": "{{ url('/') }}",
   "logo": "{{ asset('images/logo.png') }}",
-  "description": "PublienRed: Soluciones digitales y marketing para tu negocio",
+  "description": "LevelUp+: Soluciones digitales y marketing para tu negocio",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Mérida",
-    "addressRegion": "Mérida",
-    "addressCountry": "VE"
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+58-424-744-7443",
-    "contactType": "customer service"
-  }
+  "telephone": "+15313521179",
+  "email": "admin@digitalagencylevelup.com",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+15313521179",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": ["en","es"]
+    }
+  ],
+  
 }
-  </script>
+</script>
+
   @endif
 
   {{-- FontAwesome --}}
   <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pb3Xr6ScCnCIWmD1QWiPv9UlFoEJf1E+efbacR+MVx1f60j+9bykNwOlGNHsCefHeIF3Ge3SOXBsKuXIUHM6Yw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
 
   {{-- Vite (TailwindCSS + JS) --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
+
+
 <body class="min-h-screen flex flex-col">
   {{-- Navbar + Topbar --}}
   @include('partials.navbar')
 
-  {{-- Splash SOLO en la ruta 'home' --}}
-  @if(request()->routeIs('home'))
-    @include('partials.splash')
-  @endif
+  
 
   {{-- Contenido principal --}}
   <main id="main" class="flex-grow">
@@ -76,5 +81,8 @@
 
   {{-- Footer --}}
   @include('partials.footer')
+
+  {{-- Scripts de cada vista --}}
+  @stack('scripts')
 </body>
 </html>

@@ -9,10 +9,12 @@
       {{-- Logo & Descripción --}}
       <div class="space-y-3">
         <a href="{{ url('/') }}" class="inline-block">
-          <img src="{{ asset('images/logo-footer.png') }}" alt="PublienRed Logo" class="h-8">
+          <img src="{{ asset('images/logo-footer.png') }}"
+               alt="{{ config('app.name') }} Logo"
+               class="h-8">
         </a>
         <p class="font-body">
-          En <strong>PublienRed</strong> combinamos software a medida y marketing digital para impulsar tu marca y transformar tus ideas.
+          {!! __('messages.footer_description') !!}
         </p>
         <div class="flex space-x-3">
           <a href="#" class="text-light hover:text-primary transition"><i class="fab fa-facebook-f"></i></a>
@@ -24,33 +26,48 @@
 
       {{-- Enlaces Rápidos --}}
       <div class="space-y-2">
-        <h4 class="text-base font-heading font-bold text-light border-b border-black inline-block pb-1">Enlaces</h4>
+        <h4 class="text-base font-heading font-bold text-light border-b border-black inline-block pb-1">
+          {{ __('messages.footer_links') }}
+        </h4>
         <ul class="space-y-1 font-body">
-          <li><a href="#services" class="hover:text-black transition">Servicios</a></li>
-          <li><a href="#portfolio" class="hover:text-black transition">Portafolio</a></li>
-          <li><a href="#about" class="hover:text-black transition">Quiénes Somos</a></li>
-          <li><a href="#contact" class="hover:text-black transition">Contacto</a></li>
+          <li><a href="#services"  class="hover:text-black transition">{{ __('messages.services') }}</a></li>
+          <li><a href="#portfolio" class="hover:text-black transition">{{ __('messages.portfolio') }}</a></li>
+          <li><a href="#about"     class="hover:text-black transition">{{ __('messages.about') }}</a></li>
+          <li><a href="#contact"   class="hover:text-black transition">{{ __('messages.contact') }}</a></li>
         </ul>
       </div>
 
       {{-- Servicios --}}
       <div class="space-y-2">
-        <h4 class="text-base font-heading font-bold text-light border-b border-secondary inline-block pb-1">Servicios</h4>
+        <h4 class="text-base font-heading font-bold text-light border-b border-secondary inline-block pb-1">
+          {{ __('messages.services') }}
+        </h4>
         <ul class="space-y-1 font-body">
-          <li><a href="#" class="hover:text-secondary transition">Desarrollo Web</a></li>
-          <li><a href="#" class="hover:text-secondary transition">Marketing Digital</a></li>
-          <li><a href="#" class="hover:text-secondary transition">Diseño Gráfico</a></li>
-          <li><a href="#" class="hover:text-secondary transition">SEO & SEM</a></li>
+          <li><a href="#" class="hover:text-secondary transition">{{ __('messages.service_web_title') }}</a></li>
+          <li><a href="#" class="hover:text-secondary transition">{{ __('messages.service_marketing_title') }}</a></li>
+          <li><a href="#" class="hover:text-secondary transition">{{ __('messages.service_design_title') }}</a></li>
+          <li><a href="#" class="hover:text-secondary transition">{{ __('messages.service_seo_title') }}</a></li>
         </ul>
       </div>
 
-      {{-- Contacto & Newsletter --}}
+      {{-- Contacto --}}
       <div class="space-y-3">
-        <h4 class="text-base font-heading font-bold text-light border-b border-primary inline-block pb-1">Contáctanos</h4>
+        <h4 class="text-base font-heading font-bold text-light border-b border-primary inline-block pb-1">
+          {{ __('messages.contact_us') }}
+        </h4>
         <div class="font-body space-y-1">
-          <p class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-primary"></i>Estado Mérida, Venezuela</p>
-          <p class="flex items-center"><i class="fas fa-phone-alt mr-2 text-secondary"></i>+58 412 642 1603</p>
-          <p class="flex items-center"><i class="fas fa-envelope mr-2 text-primary"></i>admin@publienred.com</p>
+          <p class="flex items-center">
+            <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
+            {{ __('messages.contact_location_value') }}
+          </p>
+          <p class="flex items-center">
+            <i class="fas fa-phone-alt mr-2 text-secondary"></i>
+            {{ __('messages.contact_phone_value') }}
+          </p>
+          <p class="flex items-center">
+            <i class="fas fa-envelope mr-2 text-primary"></i>
+            {{ __('messages.contact_email_value') }}
+          </p>
         </div>
       </div>
     </div>
@@ -59,7 +76,7 @@
   {{-- Zona inferior: fondo claro para el copyright --}}
   <div class="bg-light text-dark py-3 text-xs">
     <div class="max-w-2xl mx-auto px-6 text-center font-body">
-      © {{ date('Y') }} PublienRed. Todos los derechos reservados.
+      © {{ date('Y') }} LevelUp+. {{ __('messages.all_rights') }}
     </div>
   </div>
 </footer>
