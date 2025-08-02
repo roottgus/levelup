@@ -35,12 +35,12 @@
     "addressRegion": "FL",
     "addressCountry": "US"
   },
-  "telephone": "+15313521179",
-  "email": "admin@digitalagencylevelup.com",
+  "telephone": "+16575286335",
+  "email": "info@levelupplus.net",
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+15313521179",
+      "telephone": "+16575286335",
       "contactType": "customer service",
       "areaServed": "US",
       "availableLanguage": ["en","es"]

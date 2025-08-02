@@ -47,7 +47,7 @@ class ContactController extends Controller
         // 4. Envío de correos:
 
         // 4.1 Notificar al administrador
-        Mail::to('admin@digitalagencylevelup.com')
+        Mail::to('info@levelupplus.net')
             ->send(new ContactFormMail($data));
 
         // 4.2 Confirmación al usuario

@@ -57,4 +57,17 @@
     @include('partials.wave', ['flip' => true, 'color' => '#ffffff'])
     @include('partials.contact')
   </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if(window.location.hash) {
+      setTimeout(function() {
+        var target = document.querySelector(window.location.hash);
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 400);
+    }
+  });
+</script>
 @endsection

@@ -63,7 +63,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'admin@digitalagencylevelup.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@levelupplus.net'),
         'name'    => env('MAIL_FROM_NAME', 'LevelUp+ Digital Agency'),
     ],
 

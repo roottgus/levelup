@@ -35,10 +35,11 @@ return [
         ],
     ],
 
-   'recaptcha' => [
-        'sitekey' => env('RECAPTCHA_SITEKEY'),
-        'secret'  => env('RECAPTCHA_SECRET'),
+   'nocaptcha' => [
+    'sitekey' => env('NOCAPTCHA_SITEKEY'),
+    'secret'  => env('NOCAPTCHA_SECRET'),
 ],
+
 
 
 ];

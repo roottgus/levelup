@@ -40,8 +40,8 @@
           <tr>
             <td style="background:#0f66af;padding:20px;color:#ffffff;text-align:center;font-size:12px;">
               LevelUp+ Digital Agency &bull; Miami, FL<br>
-              <a href="mailto:admin@digitalagencylevelup.com" style="color:#ffffff;text-decoration:underline;">
-                admin@digitalagencylevelup.com
+              <a href="mailto:info@levelupplus.net" style="color:#ffffff;text-decoration:underline;">
+                info@levelupplus.net
               </a><br>
               © {{ date('Y') }} LevelUp+. Todos los derechos reservados.
             </td>

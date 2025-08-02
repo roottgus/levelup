@@ -122,7 +122,11 @@
                 required
               ></textarea>
             </div>
-            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+
+            {{-- reCAPTCHA v2 --}}
+            <div class="mt-4">
+              {!! NoCaptcha::display() !!}
+            </div>
 
             <button
               type="submit"
@@ -131,20 +135,9 @@
               {{ __('messages.contact_send_button') }}
             </button>
           </form>
+          {!! NoCaptcha::renderJs() !!}
         </div>
       </div>
     </div>
   </div>
 </section>
-
-@push('scripts')
-<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.sitekey') }}"></script>
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('{{ config('services.recaptcha.sitekey') }}', { action: 'contact' })
-      .then(function(token) {
-        document.getElementById('g-recaptcha-response').value = token;
-      });
-  });
-</script>
-@endpush

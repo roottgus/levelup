@@ -27,6 +27,14 @@ Route::middleware([SetLocale::class])->group(function() {
     Route::get('/faq',            [PageController::class, 'faq'])->name('faq');
     Route::get('/contacto',       [PageController::class, 'contactoForm'])->name('contacto');
 
+    // Política de Privacidad
+    Route::get('/politica', function () {
+        return view('politica');
+    })->name('politica');
+    Route::get('/terminos', function () {
+        return view('terminos');
+    })->name('terminos');
+
     // Formulario de contacto
     Route::post('/contact', [ContactController::class, 'send'])
          ->name('contact.send')
